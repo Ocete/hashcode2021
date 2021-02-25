@@ -35,7 +35,7 @@ for inter, v_calles in inp.interseccion.items():
 
 	m = min(i_dict, key=i_dict.get)
 
-	for c, val in inp.interseccion.items():
+	for c, val in i_dict.items():
 		i_dict[c] = int(val / m)
 
 	schedules[inter] = i_dict
