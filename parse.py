@@ -32,7 +32,7 @@ def read_file(name: str) -> Input:
         calles = dict()
         coches = dict()
         interseccion = defaultdict(list)
-        coches_por_calle = defaultdict(int)
+        coches_por_calle = defaultdict(float)
         coches_iniciales= defaultdict(int)
 
         for _ in range(S):
@@ -41,10 +41,11 @@ def read_file(name: str) -> Input:
             interseccion[E].append(name)
 
         for i in range(V):
-            _, *calles = f.readline().strip().split(' ')
-            for calle in calles:
-                coches_por_calle[calle] += 1
-            coches[i] = calles
+            _, *_calles = f.readline().strip().split(' ')
+            longitud_trayecto = sum([calles[calle].time for calle in _calles])
+            for calle in _calles:
+                coches_por_calle[calle] += 1/(longitud_trayecto)
+            coches[i] = _calles
 
         for _, calles_coche in coches.items():
             coches_iniciales[calles_coche[0]] += 1
