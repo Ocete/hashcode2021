@@ -41,7 +41,7 @@ for inter, v_calles in inp.interseccion.items():
 	schedules[inter] = i_dict
 
 solution = Solution(schedules)
-solution.write_to_file('outputs/{}.txt'.format(input_file_name))
+solution.write_to_file('outputs/{}.txt'.format(sys.argv[1]))
 
 
 # Semaforo A: 20/35	 4	       *80/Ciclos seg?
