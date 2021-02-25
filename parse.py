@@ -22,6 +22,7 @@ class Input:
     coches: Dict[int, List[Calle]]
     interseccion: Dict[Interseccion, List[Calle]]
     coches_por_calle: Any
+    coches_iniciales: Dict[Calle, int]
 
 
 def read_file(name: str) -> Input:
@@ -32,6 +33,7 @@ def read_file(name: str) -> Input:
         coches = dict()
         interseccion = defaultdict(list)
         coches_por_calle = defaultdict(int)
+        coches_iniciales= defaultdict(int)
 
         for _ in range(S):
             B, E, name, L = f.readline().split(' ')
@@ -43,6 +45,10 @@ def read_file(name: str) -> Input:
             for calle in calles:
                 coches_por_calle[calle] += 1
             coches[i] = calles
+
+        for _, calles_coche in coches.items():
+            coches_iniciales[calles_coche[0]] += 1
+
 
     return Input(D,I,S,V,F,calles,coches,interseccion,coches_por_calle)   
     

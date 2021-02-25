@@ -13,7 +13,7 @@ class Solution:
     def __init__(self, sch):
         self.schedules = sch
 
-    def write_to_file(self, path: str):
+    def write_to_file(self, path: str, inp: Input):
         with open(path, 'w') as f:
             print(len(self.schedules), file=f)
 
@@ -21,7 +21,12 @@ class Solution:
                 print(intersection, file=f)
                 print(len(schedule), file=f)
 
-                for street_name, seconds in schedule.items():
+                zipped = [(inp.coches_iniciales[street_name], street_name, seconds) \
+                	for street_name, seconds in schedule.items() ]
+
+                zipped = sorted(zipped, reverse=True)
+
+                for _, street_name, seconds in zipped:
                     print(street_name, seconds, file=f)
 
 
