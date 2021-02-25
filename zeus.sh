@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 time python3 solution.py a.txt
 time python3 solution.py b.txt
