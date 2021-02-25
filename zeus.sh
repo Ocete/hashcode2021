@@ -9,3 +9,5 @@ time python3 ../solution.py d.txt
 time python3 ../solution.py e.txt
 time python3 ../solution.py f.txt
 popd
+
+zip ohno -r *.py
