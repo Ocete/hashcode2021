@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from collections import defaultdict
-from typing import Dict, List
+from typing import Dict, List, Any
 
 @dataclass
 class StreetInfo:
@@ -21,7 +21,7 @@ class Input:
     calles: Dict[Calle, StreetInfo]
     coches: Dict[int, List[Calle]]
     interseccion: Dict[Interseccion, List[Calle]]
-    coches_por_calle: defaultdict[Calle, int]
+    coches_por_calle: Any
 
 
 def read_file(name: str) -> Input:
