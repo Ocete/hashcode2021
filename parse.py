@@ -50,7 +50,7 @@ def read_file(name: str) -> Input:
             coches_iniciales[calles_coche[0]] += 1
 
 
-    return Input(D,I,S,V,F,calles,coches,interseccion,coches_por_calle)   
+    return Input(D,I,S,V,F,calles,coches,interseccion,coches_por_calle,coches_iniciales)   
     
 
 

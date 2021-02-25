@@ -13,7 +13,7 @@ class Solution:
     def __init__(self, sch):
         self.schedules = sch
 
-    def write_to_file(self, path: str, inp: Input):
+    def write_to_file(self, path: str, inp):
         with open(path, 'w') as f:
             print(len(self.schedules), file=f)
 
@@ -48,10 +48,11 @@ for inter, v_calles in inp.interseccion.items():
     for c, n_coches in i_dict.items():
         i_dict[c] = int(n_coches / m)
 
+
     schedules[inter] = i_dict
 
 solution = Solution(schedules)
-solution.write_to_file('../outputs/{}'.format(sys.argv[1]))
+solution.write_to_file('../outputs/{}'.format(sys.argv[1]), inp)
 
 
 # Semaforo A: 20/35     4           *80/Ciclos seg?
