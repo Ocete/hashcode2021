@@ -10,7 +10,7 @@ class Solution:
     schedules: dict[Intersection, dict[Street, int]]
 
     def __init__(self, sch):
-    	self.schedules = sch
+        self.schedules = sch
 
     def write_to_file(self, path: str):
         with open(path, 'w') as f:
@@ -28,24 +28,26 @@ inp = parse.read_file(sys.argv[1])
 
 schedules = {}
 for inter, v_calles in inp.interseccion.items():
-	i_dict = {}
-		
-	for c in v_calles:
-		i_dict[c] = inp.coches_por_calle[c]
+    i_dict = {}
+        
+    for c in v_calles:
+        if c in inp.coches_por_calle:
+            i_dict[c] = inp.coches_por_calle[c]
 
-	m = min(i_dict, key=i_dict.get)
-	m = i_dict[m]
+    if not i_dict.values():
+        continue
 
-	for c, n_coches in i_dict.items():
-		print(c, n_coches)
-		i_dict[c] = int(n_coches / m)
+    m = min(i_dict.values())
 
-	schedules[inter] = i_dict
+    for c, n_coches in i_dict.items():
+        i_dict[c] = int(n_coches / m)
+
+    schedules[inter] = i_dict
 
 solution = Solution(schedules)
 solution.write_to_file('../outputs/{}'.format(sys.argv[1]))
 
 
-# Semaforo A: 20/35	 4	       *80/Ciclos seg?
+# Semaforo A: 20/35     4           *80/Ciclos seg?
 # Semáforo B: 10/35    2                    *80
 # Semáforo C: 5/35     1  
