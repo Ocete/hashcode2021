@@ -24,7 +24,7 @@ class Solution:
                 zipped = [(inp.coches_iniciales[street_name], street_name, seconds) \
                 	for street_name, seconds in schedule.items() ]
 
-                zipped = sorted(zipped, reverse=True)
+                #zipped = sorted(zipped, reverse=True)
 
                 for _, street_name, seconds in zipped:
                     print(street_name, seconds, file=f)
@@ -47,6 +47,9 @@ for inter, v_calles in inp.interseccion.items():
 
     for c, n_coches in i_dict.items():
         i_dict[c] = int(n_coches / m)
+
+        # Test for D
+        i_dict[c] = 1
 
 
     schedules[inter] = i_dict
