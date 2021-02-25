@@ -42,9 +42,9 @@ def read_file(name: str) -> Input:
 
         for i in range(V):
             _, *_calles = f.readline().strip().split(' ')
-            longitud_trayecto = sum([calles[calle].time for calle in _calles])
+            #longitud_trayecto = sum([calles[calle].time for calle in _calles])
             for calle in _calles:
-                coches_por_calle[calle] += 1/(longitud_trayecto)
+                coches_por_calle[calle] += 1             #/(longitud_trayecto)
             coches[i] = _calles
 
         for _, calles_coche in coches.items():
