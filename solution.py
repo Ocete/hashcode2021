@@ -1,13 +1,14 @@
 import parse
 import sys
 from dataclasses import dataclass
+from typing import Dict
 
 Intersection = int
 Street = str
 
 @dataclass
 class Solution:
-    schedules: dict[Intersection, dict[Street, int]]
+    schedules: Dict[Intersection, Dict[Street, int]]
 
     def __init__(self, sch):
         self.schedules = sch
