@@ -1,3 +1,5 @@
+import parse
+import sys
 from dataclasses import dataclass
 
 Intersection = int
@@ -22,6 +24,7 @@ class Solution:
                     print(street_name, seconds, file=f)
 
 
+inp = parse.read_file(sys.argv[1])
 
 schedules = {}
 for inter, v_calles in inp.interseccion.items():
