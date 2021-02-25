@@ -34,6 +34,7 @@ for inter, v_calles in inp.interseccion.items():
 		i_dict[c] = inp.coches_por_calle[c]
 
 	m = min(i_dict, key=i_dict.get)
+	m = i_dict[m]
 
 	for c, n_coches in i_dict.items():
 		print(c, n_coches)
@@ -42,7 +43,7 @@ for inter, v_calles in inp.interseccion.items():
 	schedules[inter] = i_dict
 
 solution = Solution(schedules)
-solution.write_to_file('../outputs/{}.txt'.format(sys.argv[1]))
+solution.write_to_file('../outputs/{}'.format(sys.argv[1]))
 
 
 # Semaforo A: 20/35	 4	       *80/Ciclos seg?
