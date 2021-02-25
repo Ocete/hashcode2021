@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from collections import defaultdict
+from typing import Dict, List
 
 @dataclass
 class StreetInfo:
@@ -17,9 +18,9 @@ class Input:
     S: int
     V: int
     F: int
-    calles: dict[Calle, StreetInfo]
-    coches: dict[int, list[Calle]]
-    interseccion: dict[Interseccion, list[Calle]]
+    calles: Dict[Calle, StreetInfo]
+    coches: Dict[int, List[Calle]]
+    interseccion: Dict[Interseccion, List[Calle]]
     coches_por_calle: defaultdict[Calle, int]
 
 
